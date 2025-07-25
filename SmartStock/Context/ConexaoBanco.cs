@@ -11,9 +11,8 @@ namespace SmartStock.Context
 {
 	public class ConexaoBanco
 	{
-		// Conexão com o servidor Belloni. Lembrar de apagar de quem é o servidor kkkk
-		//private const string conexao = "Server=;Database=;User Id=;Password=;";
-		private const string conexao = "Server=localhost;Database=smartstock;User Id=root;Password=;";
+		
+		private const string conexao = "Server=177.116.171.34:3306;Database=smartstock;User Id=smartAcesso;Password=smart_Stock1945;";
 
 		public MySqlConnection Conexao()
 		{

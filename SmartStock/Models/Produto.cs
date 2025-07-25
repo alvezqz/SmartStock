@@ -15,7 +15,7 @@ namespace SmartStock.Models
 		public DateTime? Validade { get; set; }
 		public int EstoqueIdeal { get; set; }
 		public decimal Preco { get; set; }
-		public char Status { get; set; }
+		public string Status { get; set; }
 		public decimal EstoqueMinimo { get; set; }
 		public string Descricao { get; set; }
 		public int IdEmpresa { get; set; }
