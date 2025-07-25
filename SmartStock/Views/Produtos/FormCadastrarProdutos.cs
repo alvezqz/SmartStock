@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
 using SmartStock.Controllers;
 using SmartStock.Models;
 using System;
@@ -37,9 +37,9 @@ namespace SmartStock.Views
 				string query = "SELECT SELECT idProduto, nome, quantidadeAtual, " +
 					"estoqueMinimo, validade, preco, status, descricao, idEmpresa " +
 					"FROM Produtos WHERE  idProduto = @IdProduto";
-				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySqlConnector.MySqlParameter>()
+				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySqlParameter>()
 				{
-					new MySqlConnector.MySqlParameter("@IdProduto", _idProduto)
+					new MySqlParameter("@IdProduto", _idProduto)
 				}) ?? null;
 				if (dt != null)
 					produto = new Produto()
@@ -73,7 +73,7 @@ namespace SmartStock.Views
 					
 					string query = "INSERT INTO Produto (idProduto, nome, quantidadeAtual, estoqueMinimo, validade, preco, status, descricao, idEmpresa)" +
 						"VALUES(@idProduto, @nome, @quantidadeAtual, @estoqueMinimo, @validade, @preco, @status, @descricao, @idEmpresa)";
-					bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlConnector.MySqlParameter>()
+					bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
 						new MySqlParameter("@idProduto", ProdutoController.NovoId()),
 						new MySqlParameter("@nome", txtNome.Text),

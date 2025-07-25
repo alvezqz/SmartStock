@@ -1,5 +1,6 @@
 ﻿using SmartStock.Controllers;
 using System;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -92,9 +93,9 @@ namespace SmartStock.Views.Produtos
 					if(dr == DialogResult.OK)
 					{
 						string query = "DELETE FROM Produto WHERE idProduto = @idProduto";
-						bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlConnector.MySqlParameter>()
+						bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 						{
-							new MySqlConnector.MySqlParameter("@idProduto", produto.IdProduto)
+							new MySqlParameter("@idProduto", produto.IdProduto)
 						});
 						if (resultado)
 						{

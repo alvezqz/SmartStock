@@ -16,7 +16,7 @@ namespace SmartStock.Controllers
 		public static int NovoId()
 		{
 			ConexaoBanco bd = new ConexaoBanco();
-			string query = $"SELECT MAX(idEmpresa) AS MaxID FROM Empresa";
+			string query = $"SELECT MAX(idProduto) AS MaxID FROM produto";
 			DataTable dt = bd.ExecutarConsulta(query);
 			if (dt.Rows.Count > 0)
 				if (dt.Rows[0]["MaxID"] != DBNull.Value &&

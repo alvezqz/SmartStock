@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
+using SmartStock.Controllers;
 using SmartStock.Models;
 using System;
 using System.Collections.Generic;
@@ -29,11 +30,11 @@ namespace SmartStock.Views
 				try
 				{
 					string query = "INSERT INTO Empresa (idEmpresa, nomeEmpresa, email, senha, cnpj, telefone) " +
-					"VALUES (@idEmpresa, @nomeEmpresa, @email, @senha, @cpnj, @telefone)";
+					"VALUES (@idEmpresa, @nomeEmpresa, @email, @senha, @cnpj, @telefone)";
 					if (FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
-						// Aqui eu deixei comentado o idEmpresa, por estar com erro
-						// new MySqlParameter("@idEmpresa", Empresa.NovoId()),
+
+						new MySqlParameter("@idEmpresa", EmpresaController.NovoId()),
 						new MySqlParameter("@nomeEmpresa", txtNomeEmpresa.Text),
 						new MySqlParameter("@email", txtEmail.Text),
 						new MySqlParameter("@senha", txtSenha.Text),
@@ -47,7 +48,7 @@ namespace SmartStock.Views
 				}
 				catch(Exception ex)
 				{
-					Mensagem.Erro(ex.Message);
+					Mensagem.Erro(ex.ToString());
 				}
 				
 			}

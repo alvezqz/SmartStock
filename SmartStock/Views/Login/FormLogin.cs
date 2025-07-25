@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
+
 using SmartStock.Context;
 using SmartStock.Models;
 using System;
@@ -75,7 +76,7 @@ namespace SmartStock.Views
 				new MySqlParameter("@senha", txtSenha?.Text)
 			};
 			var resultado = bd.ExecutarEscalar(query, parametros);
-			if ((int)resultado == 0)
+			if (int.Parse(resultado.ToString()) == 0)
 				msg += "Nenhum Login Encontrado";
 			if (!string.IsNullOrEmpty(msg))
 				MessageBox.Show(msg, "Erro na Validação");
