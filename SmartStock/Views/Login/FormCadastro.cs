@@ -32,7 +32,8 @@ namespace SmartStock.Views
 					"VALUES (@idEmpresa, @nomeEmpresa, @email, @senha, @cpnj, @telefone)";
 					if (FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
-						new MySqlParameter("@idEmpresa", Empresa.NovoId()),
+						// Aqui eu deixei comentado o idEmpresa, por estar com erro
+						// new MySqlParameter("@idEmpresa", Empresa.NovoId()),
 						new MySqlParameter("@nomeEmpresa", txtNomeEmpresa.Text),
 						new MySqlParameter("@email", txtEmail.Text),
 						new MySqlParameter("@senha", txtSenha.Text),

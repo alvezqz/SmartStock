@@ -11,10 +11,12 @@ namespace SmartStock.Context
 {
 	public class ConexaoBanco
 	{
-		
-		private const string conexao = "Server=177.116.171.34:3306;Database=smartstock;User Id=smartAcesso;Password=smart_Stock1945;";
 
-		public MySqlConnection Conexao()
+        //private const string conexao = "Server=177.116.171.34:3306;Database=smartstock;User Id=smartAcesso;Password=smart_Stock1945;";
+        private const string conexao = "Server=177.116.171.34;Port=3306;Database=smartstock;User Id=smartAcesso;Password=smart_Stock1945;";
+
+
+        public MySqlConnection Conexao()
 		{
 			MySqlConnection conn = new MySqlConnection(conexao);
 			if (conn.State != ConnectionState.Open)
