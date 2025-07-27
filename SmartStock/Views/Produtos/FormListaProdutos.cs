@@ -42,6 +42,7 @@ namespace SmartStock.Views.Produtos
 				DgvListagem.Columns.Add("descricao", "Descrição");
 				DgvListagem.Columns.Add("status", "Status");
 				DgvListagem.DataSource = controller.RetornaLista();
+				DgvListagem.Refresh();
 			}
 			catch (Exception ex)
 			{
