@@ -114,7 +114,10 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.txtEmail);
 			this.Name = "FormLogin";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FormLogin";
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormLogin_KeyDown);
+			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormLogin_KeyPress);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

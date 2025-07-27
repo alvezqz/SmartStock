@@ -17,6 +17,7 @@ namespace SmartStock.Views.Produtos
 		public FormListaProdutos()
 		{
 			InitializeComponent();
+			DgvListagem.AutoGenerateColumns = false;
 			CarregarDados();
 		}
 
@@ -34,13 +35,12 @@ namespace SmartStock.Views.Produtos
 					DgvListagem.Rows.Clear();
 				DgvListagem.Columns.Add("nome", "Nome");
 				DgvListagem.Columns.Add("quantidadeAtual", "Quantidade Atual");
-				DgvListagem.Columns.Add("validade", "validade");
+				DgvListagem.Columns.Add("validade", "Validade");
 				DgvListagem.Columns.Add("estoqueIdeal", "Estoque Ideal");
 				DgvListagem.Columns.Add("estoqueMinimo", "Estoque Minimo");
 				DgvListagem.Columns.Add("preco", "Preço");
 				DgvListagem.Columns.Add("descricao", "Descrição");
 				DgvListagem.Columns.Add("status", "Status");
-
 				DgvListagem.DataSource = controller.RetornaLista();
 			}
 			catch (Exception ex)

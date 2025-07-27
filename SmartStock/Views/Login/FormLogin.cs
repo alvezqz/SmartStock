@@ -82,5 +82,16 @@ namespace SmartStock.Views
 				MessageBox.Show(msg, "Erro na Validação");
 			return string.IsNullOrEmpty(msg);
 		}
+
+		private void FormLogin_KeyPress(object sender, KeyPressEventArgs e)
+		{
+
+		}
+
+		private void FormLogin_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+				btnFinalizarLogin.PerformClick();
+		}
 	}
 }

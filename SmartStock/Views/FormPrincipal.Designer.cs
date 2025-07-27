@@ -32,12 +32,12 @@
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.tsbEstoque = new System.Windows.Forms.ToolStripButton();
 			this.tsbAnalisarEstoque = new System.Windows.Forms.ToolStripButton();
-			this.tsbDoacao = new System.Windows.Forms.ToolStripButton();
-			this.tsbHistorico = new System.Windows.Forms.ToolStripButton();
-			this.tsbSair = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsbDoacao = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsbHistorico = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsbSair = new System.Windows.Forms.ToolStripButton();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -55,7 +55,7 @@
             this.tsbSair});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(800, 50);
+			this.toolStrip1.Size = new System.Drawing.Size(1184, 50);
 			this.toolStrip1.TabIndex = 6;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -67,6 +67,7 @@
 			this.tsbEstoque.Size = new System.Drawing.Size(53, 47);
 			this.tsbEstoque.Text = "Estoque";
 			this.tsbEstoque.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.tsbEstoque.Click += new System.EventHandler(this.tsbEstoque_Click);
 			// 
 			// tsbAnalisarEstoque
 			// 
@@ -78,6 +79,11 @@
 			this.tsbAnalisarEstoque.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.tsbAnalisarEstoque.Click += new System.EventHandler(this.tsbAnalisarEstoque_Click);
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 50);
+			// 
 			// tsbDoacao
 			// 
 			this.tsbDoacao.Image = ((System.Drawing.Image)(resources.GetObject("tsbDoacao.Image")));
@@ -87,6 +93,11 @@
 			this.tsbDoacao.Text = "Doação";
 			this.tsbDoacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.tsbDoacao.Click += new System.EventHandler(this.tsbDoacao_Click);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 50);
 			// 
 			// tsbHistorico
 			// 
@@ -98,6 +109,11 @@
 			this.tsbHistorico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.tsbHistorico.Click += new System.EventHandler(this.tsbHistorico_Click);
 			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 50);
+			// 
 			// tsbSair
 			// 
 			this.tsbSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbSair.Image")));
@@ -107,29 +123,15 @@
 			this.tsbSair.Text = "Sair";
 			this.tsbSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 50);
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 50);
-			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 50);
-			// 
 			// FormPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1184, 761);
 			this.Controls.Add(this.toolStrip1);
 			this.IsMdiContainer = true;
 			this.Name = "FormPrincipal";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FormPrincipal";
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();

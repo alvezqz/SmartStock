@@ -16,7 +16,7 @@ namespace SmartStock.Controllers
 		public static int NovoId()
 		{
 			ConexaoBanco bd = new ConexaoBanco();
-			string query = $"SELECT MAX(idProduto) AS MaxID FROM produto";
+			string query = $"SELECT MAX(idProduto) AS MaxID FROM Produto";
 			DataTable dt = bd.ExecutarConsulta(query);
 			if (dt.Rows.Count > 0)
 				if (dt.Rows[0]["MaxID"] != DBNull.Value &&
@@ -28,25 +28,28 @@ namespace SmartStock.Controllers
 		public List<Models.Partials.Produto> RetornaLista()
 		{
 			var lista = new List<Models.Partials.Produto>();
-			string query = "SELECT idProduto, quantidade, ativo, nome, " +
-				"validade, estoqueIdeal, preco, estoqueMinimo, descricao " +
-				"FROM produto";
-			DataTable dt = FormLogin.bd.ExecutarConsulta(query);
+			string query = "SELECT idProduto, quantidadeAtual, ativo, nome, " +
+			"validade, estoqueIdeal, preco, estoqueMinimo, descricao " +
+			"FROM Produto WHERE idEmpresa = @idEmpresa";
+			DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
+			{
+				new MySql.Data.MySqlClient.MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa)
+			});
 
 			foreach(DataRow row in dt.Rows)
 			{
 				Produto produto = new Produto
 				{
 					IdProduto = row.Field<int>("idProduto"),
-					Descricao = row.Field<string>(""),
-					EstoqueIdeal = row.Field<int>(""),
-					QuantidadeAtual = row.Field<int>("quantidadeAtual"),
+					Descricao = row.Field<string>("descricao"),
+					EstoqueIdeal = row.Field<int?>("estoqueIdeal"),
+					QuantidadeAtual = row.Field<int?>("quantidadeAtual"),
 					Ativo = row.Field<bool>("ativo"),
 					Nome = row.Field<string>("nome"),
 					Preco = row.Field<decimal>("preco"),
 					Validade = row.Field<DateTime>("validade"),
 					Status = row.Field<DateTime>("validade") >= DateTime.Today ? "Normal" : "Vencido",
-					EstoqueMinimo = row.Field<int>("estoqueMinimo"),
+					EstoqueMinimo = row.Field<int?>("estoqueMinimo"),
 				};
 				lista.Add(produto);
 			}

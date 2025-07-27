@@ -24,9 +24,6 @@ namespace SmartStock.Views
 			InitializeComponent();
 		}
 
-		private void btnEstoque_Click(object sender, EventArgs e)
-		 => AbreFromMdi(new FormListaProdutos());
-
 		private void AbreFromMdi(Form form)
 		{
 			form.MdiParent = this;
@@ -41,5 +38,8 @@ namespace SmartStock.Views
 
 		private void tsbHistorico_Click(object sender, EventArgs e)
 		 => AbreFromMdi(new FormHistorico());
+
+		private void tsbEstoque_Click(object sender, EventArgs e)
+		=> AbreFromMdi(new FormListaProdutos());
 	}
 }

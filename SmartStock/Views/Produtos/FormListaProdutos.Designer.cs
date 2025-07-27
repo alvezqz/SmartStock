@@ -33,11 +33,11 @@
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-			this.tsbAtualizar = new System.Windows.Forms.ToolStripButton();
-			this.tsbRelatorio = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbExcluir = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsbAtualizar = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsbRelatorio = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.DgvListagem)).BeginInit();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -48,11 +48,10 @@
 			this.DgvListagem.AllowUserToDeleteRows = false;
 			this.DgvListagem.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
 			this.DgvListagem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DgvListagem.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.DgvListagem.Location = new System.Drawing.Point(0, 0);
+			this.DgvListagem.Location = new System.Drawing.Point(0, 53);
 			this.DgvListagem.Name = "DgvListagem";
 			this.DgvListagem.ReadOnly = true;
-			this.DgvListagem.Size = new System.Drawing.Size(784, 561);
+			this.DgvListagem.Size = new System.Drawing.Size(784, 508);
 			this.DgvListagem.TabIndex = 0;
 			this.DgvListagem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListagem_CellContentClick);
 			// 
@@ -93,6 +92,20 @@
 			this.tsbEditar.Text = "Editar";
 			this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
 			// 
+			// tsbExcluir
+			// 
+			this.tsbExcluir.Image = ((System.Drawing.Image)(resources.GetObject("tsbExcluir.Image")));
+			this.tsbExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbExcluir.Name = "tsbExcluir";
+			this.tsbExcluir.Size = new System.Drawing.Size(62, 47);
+			this.tsbExcluir.Text = "Excluir";
+			this.tsbExcluir.Click += new System.EventHandler(this.tsbExcluir_Click);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 50);
+			// 
 			// tsbAtualizar
 			// 
 			this.tsbAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAtualizar.Image")));
@@ -102,6 +115,11 @@
 			this.tsbAtualizar.Text = "Atualizar";
 			this.tsbAtualizar.Click += new System.EventHandler(this.tsbAtualizar_Click);
 			// 
+			// toolStripSeparator4
+			// 
+			this.toolStripSeparator4.Name = "toolStripSeparator4";
+			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 50);
+			// 
 			// tsbRelatorio
 			// 
 			this.tsbRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("tsbRelatorio.Image")));
@@ -109,25 +127,6 @@
 			this.tsbRelatorio.Name = "tsbRelatorio";
 			this.tsbRelatorio.Size = new System.Drawing.Size(74, 47);
 			this.tsbRelatorio.Text = "Relatório";
-			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 50);
-			// 
-			// toolStripSeparator4
-			// 
-			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 50);
-			// 
-			// tsbExcluir
-			// 
-			this.tsbExcluir.Image = ((System.Drawing.Image)(resources.GetObject("tsbExcluir.Image")));
-			this.tsbExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbExcluir.Name = "tsbExcluir";
-			this.tsbExcluir.Size = new System.Drawing.Size(62, 47);
-			this.tsbExcluir.Text = "Excluir";
-			this.tsbExcluir.Click += new System.EventHandler(this.tsbExcluir_Click);
 			// 
 			// FormListaProdutos
 			// 
@@ -146,8 +145,6 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.DataGridView DgvListagem;
 		private System.Windows.Forms.ToolStrip toolStrip1;
 		private System.Windows.Forms.ToolStripButton toolStripButton1;
 		private System.Windows.Forms.ToolStripButton tsbEditar;
@@ -156,5 +153,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.ToolStripButton tsbRelatorio;
 		private System.Windows.Forms.ToolStripButton tsbExcluir;
+		private System.Windows.Forms.DataGridView DgvListagem;
 	}
 }

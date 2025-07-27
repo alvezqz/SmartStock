@@ -34,9 +34,9 @@ namespace SmartStock.Views
 		{
 			if(_idProduto != null)
 			{
-				string query = "SELECT SELECT idProduto, nome, quantidadeAtual, " +
+				string query = "SELECT idProduto, nome, quantidadeAtual, " +
 					"estoqueMinimo, validade, preco, status, descricao, idEmpresa " +
-					"FROM Produtos WHERE  idProduto = @IdProduto";
+					"FROM Produto WHERE idProduto = @IdProduto";
 				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySqlParameter>()
 				{
 					new MySqlParameter("@IdProduto", _idProduto)
@@ -64,6 +64,16 @@ namespace SmartStock.Views
 			}
 		}
 
+		private void LimparCampos()
+		{
+			txtDescricao.Clear();
+			txtIdeal.Clear();
+			txtMinimo.Clear();
+			txtNome.Clear();
+			txtPreco.Clear();
+			txtQuantidade.Clear();
+		}
+
 		private void btnCadastrar_Click(object sender, EventArgs e)
 		{
 			if (ValidaForms())
@@ -71,14 +81,15 @@ namespace SmartStock.Views
 				if(produto == null)
 				{
 					
-					string query = "INSERT INTO Produto (idProduto, nome, quantidadeAtual, estoqueMinimo, validade, preco, status, descricao, idEmpresa)" +
-						"VALUES(@idProduto, @nome, @quantidadeAtual, @estoqueMinimo, @validade, @preco, @status, @descricao, @idEmpresa)";
+					string query = "INSERT INTO Produto (idProduto, nome, quantidadeAtual, estoqueMinimo, estoqueIdeal, validade, preco, status, descricao, idEmpresa)" +
+						"VALUES(@idProduto, @nome, @quantidadeAtual, @estoqueMinimo, @estoqueIdeal, @validade, @preco, @status, @descricao, @idEmpresa)";
 					bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
 						new MySqlParameter("@idProduto", ProdutoController.NovoId()),
 						new MySqlParameter("@nome", txtNome.Text),
 						new MySqlParameter("@quantidadeAtual", int.Parse(txtQuantidade.Text)),
-						new MySqlParameter("@estoqueMinimo", int.Parse(txtIdeal.Text)),
+						new MySqlParameter("@estoqueMinimo", int.Parse(txtMinimo.Text)),
+						new MySqlParameter("@estoqueIdeal", int.Parse(txtIdeal.Text)),
 						new MySqlParameter("@validade", dateValidade.Value.Date),
 						new MySqlParameter("@preco", decimal.Parse(txtPreco.Text)),
 						new MySqlParameter("@status", "N"),
@@ -88,15 +99,16 @@ namespace SmartStock.Views
 					if (resultado)
 					{
 						Mensagem.Sucesso("Produto Cadastrado com Sucesso");
+						LimparCampos();
 						_save = true;
 					}
 				}
 				if(produto != null)
 				{
 					string query = "UPDATE Produto (nome, quantidadeAtual, estoqueMinimo, validade, " +
-						"preco, descricao, idEmpresa) " +
+						"preco, descricao " +
 						"SET (@nome, @quantidadeAtual, @estoqueMinimo, @validade, @preco, " +
-						"@descricao, @idEmpresa) " +
+						"@descricao) " +
 						"WHERE idProduto = @idProduto";
 					bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
@@ -106,7 +118,7 @@ namespace SmartStock.Views
 						new MySqlParameter("@validade", dateValidade.Value.Date),
 						new MySqlParameter("@preco", decimal.Parse(txtPreco.Text)),
 						new MySqlParameter("@descricao", txtDescricao.Text),
-						new MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa)
+						new MySqlParameter("@idProduto", _idProduto)
 					});
 					if (resultado)
 					{
