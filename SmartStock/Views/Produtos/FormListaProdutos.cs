@@ -123,7 +123,7 @@ namespace SmartStock.Views.Produtos
 				if(_produto != null)
 				{
 					
-					using (FormCadastrarProdutos frm = new FormCadastrarProdutos(_produto.IdProduto))
+					using (FormCadastrarProdutos frm = new FormCadastrarProdutos(_produto?.IdProduto))
 					{
 						frm.ShowDialog();
 						if(frm._save)
@@ -144,7 +144,7 @@ namespace SmartStock.Views.Produtos
 				if (_produto != null)
 				{
 					DialogResult dr = Mensagem.Confirmacao("Deseja Excluir esse produto?");
-					if(dr == DialogResult.OK)
+					if(dr == DialogResult.Yes)
 					{
 						string query = "DELETE FROM Produto WHERE idProduto = @idProduto";
 						bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
@@ -153,7 +153,7 @@ namespace SmartStock.Views.Produtos
 						});
 						if (resultado)
 						{
-							Mensagem.Sucesso("Produto Deletado Com Sucessp");
+							Mensagem.Sucesso("Produto Deletado Com Sucesso");
 							tsbAtualizar.PerformClick();
 						}
 					}

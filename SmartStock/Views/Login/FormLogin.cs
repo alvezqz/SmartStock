@@ -94,5 +94,11 @@ namespace SmartStock.Views
 			if (e.KeyCode == Keys.Enter)
 				btnFinalizarLogin.PerformClick();
 		}
+
+		private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+				btnFinalizarLogin.PerformClick();
+		}
 	}
 }

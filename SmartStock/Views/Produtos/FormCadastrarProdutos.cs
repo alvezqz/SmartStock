@@ -47,7 +47,7 @@ namespace SmartStock.Views
 						IdProduto = int.Parse(dt.Rows[0]["idProduto"].ToString()),
 						Nome = dt.Rows[0]["nome"].ToString(),
 						Quantidade = int.Parse(dt.Rows[0]["quantidadeAtual"].ToString()),
-						EstoqueMinimo = int.Parse(dt.Rows[0]["estoqueMinimo"].ToString()),
+						EstoqueMinimo = decimal.Parse(dt.Rows[0]["estoqueMinimo"].ToString()),
 						Validade = DateTime.Parse(dt.Rows[0]["validade"].ToString()),
 						Preco = decimal.Parse(dt.Rows[0]["preco"].ToString()),
 						Status = dt.Rows[0]["status"].ToString(),
