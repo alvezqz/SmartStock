@@ -191,6 +191,7 @@ namespace SmartStock.Views.Produtos
 				if (dt.Rows.Count == 0)
 					return;
 
+				_produto = new Models.Produto();
 				_produto.IdProduto = int.Parse(dt.Rows[0]["idProduto"].ToString());
 				_produto.Descricao = dt.Rows[0]["descricao"].ToString();
 				_produto.EstoqueIdeal = int.Parse(dt.Rows[0]["estoqueIdeal"].ToString());
@@ -200,7 +201,7 @@ namespace SmartStock.Views.Produtos
 				_produto.Preco = decimal.Parse(dt.Rows[0]["preco"].ToString());
 				_produto.Validade = dt.Rows[0].IsNull("validade") ? DateTime.MinValue : dt.Rows[0].Field<DateTime>("validade");
 				_produto.Status = _produto.Validade >= DateTime.Today ? "Normal" : "Vencido";
-				_produto.EstoqueMinimo = int.Parse(dt.Rows[0]["estoqueMinimo"].ToString());
+				_produto.EstoqueMinimo = decimal.Parse(dt.Rows[0]["estoqueMinimo"].ToString());
 			}
 			catch (Exception ex)
 			{
