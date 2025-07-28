@@ -51,9 +51,10 @@
 			this.DgvListagem.Location = new System.Drawing.Point(0, 53);
 			this.DgvListagem.Name = "DgvListagem";
 			this.DgvListagem.ReadOnly = true;
+			this.DgvListagem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.DgvListagem.Size = new System.Drawing.Size(784, 508);
 			this.DgvListagem.TabIndex = 0;
-			this.DgvListagem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListagem_CellContentClick);
+			this.DgvListagem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListagem_CellClick);
 			// 
 			// toolStrip1
 			// 

@@ -56,6 +56,7 @@ namespace SmartStock.Views
 					};
 					using(FormPrincipal frm = new FormPrincipal(empresa))
 					{
+						this.Hide();
 						frm.ShowDialog();
 					}
 				}
