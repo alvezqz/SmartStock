@@ -29,7 +29,7 @@ namespace SmartStock.Controllers
 		{
 			var lista = new List<Models.Partials.Produto>();
 			string query = "SELECT idProduto, quantidadeAtual, ativo, nome, " +
-			"validade, estoqueIdeal, preco, estoqueMinimo, descricao " +
+			"validade, preco, descricao " +
 			"FROM Produto WHERE idEmpresa = @idEmpresa";
 			DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
 			{
@@ -41,14 +41,12 @@ namespace SmartStock.Controllers
 				Produto produto = new Produto();
 				produto.IdProduto = row.IsNull("idProduto") ? 0 : row.Field<int>("idProduto");
 				produto.Descricao = row.IsNull("descricao") ? string.Empty : row.Field<string>("descricao");
-				produto.EstoqueIdeal = row.IsNull("estoqueIdeal") ? 0 : row.Field<int>("estoqueIdeal");
 				produto.QuantidadeAtual = row.IsNull("quantidadeAtual") ? 0 : row.Field<int>("quantidadeAtual");
 				produto.Ativo = row.IsNull("ativo") ? false : Convert.ToBoolean(row["ativo"]);
 				produto.Nome = row.IsNull("nome") ? string.Empty : row.Field<string>("nome");
 				produto.Preco = row.IsNull("preco") ? 0.0m : row.Field<decimal>("preco");
 				produto.Validade = row.IsNull("validade") ? DateTime.MinValue : row.Field<DateTime>("validade");
 				produto.Status = (row.IsNull("validade") ? DateTime.MinValue : row.Field<DateTime>("validade")) >= DateTime.Today ? "Normal" : "Vencido";
-				produto.EstoqueMinimo = row.IsNull("estoqueMinimo") ? 0 : row.Field<decimal?>("estoqueMinimo");
 				lista.Add(produto);
 			}
 			return lista;

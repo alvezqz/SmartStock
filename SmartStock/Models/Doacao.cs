@@ -12,7 +12,7 @@ namespace SmartStock.Models
 		public string NomeInstituicao {  get; set; }
 		public int Quantidade { get; set; }
 		public DateTime? DataDoacao { get; set; }
-		public char Status { get; set; }
+		public string Status { get; set; }
 		public int IdProduto { get; set; }	
     }
 }

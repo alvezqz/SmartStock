@@ -12,8 +12,11 @@ namespace SmartStock.Views.Doacao
 {
 	public partial class FormDoacao : Form
 	{
-		public FormDoacao()
+		public bool _save = false;
+		private int _idDoacao;
+		public FormDoacao(int idDoacao)
 		{
+			_idDoacao = idDoacao;
 			InitializeComponent();
 		}
 	}

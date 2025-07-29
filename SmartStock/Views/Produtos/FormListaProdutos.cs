@@ -129,7 +129,11 @@ namespace SmartStock.Views.Produtos
 						if(frm._save)
 							tsbAtualizar.PerformClick();
 					}
-				} 
+				}
+				else
+				{
+					Mensagem.Erro("Selecionar Produto para Editar");
+				}
 			}
 			catch(Exception ex)
 			{

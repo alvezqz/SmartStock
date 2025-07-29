@@ -102,8 +102,8 @@ namespace SmartStock.Views
 				if(produto == null)
 				{
 					
-					string query = "INSERT INTO Produto (idProduto, nome, quantidadeAtual, validade, preco, status, ativo, descricao, idEmpresa, idCategoria)" +
-						"VALUES(@idProduto, @nome, @quantidadeAtual, @validade, @preco, @status, @ativo, @descricao, @idEmpresa, @idCategoria)";
+					string query = "INSERT INTO Produto (idProduto, nome, quantidadeAtual, validade, preco, status, ativo, descricao, idEmpresa, idCategoria, CriadoEm)" +
+						"VALUES(@idProduto, @nome, @quantidadeAtual, @validade, @preco, @status, @ativo, @descricao, @idEmpresa, @idCategoria, @CriadoEm)";
 					bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
 						new MySqlParameter("@idProduto", ProdutoController.NovoId()),
@@ -115,7 +115,8 @@ namespace SmartStock.Views
 						new MySqlParameter("@ativo", CheckAtivo.Checked ? 1 : 0),
 						new MySqlParameter("@descricao", txtDescricao.Text),
 						new MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa),
-						new MySqlParameter("@idCategoria", ComboCategoria.SelectedValue)
+						new MySqlParameter("@idCategoria", ComboCategoria.SelectedValue),
+						new MySqlParameter("@CriadoEm", DateTime.Now)
 					});
 					if (resultado)
 					{

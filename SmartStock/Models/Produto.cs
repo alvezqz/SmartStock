@@ -18,5 +18,6 @@ namespace SmartStock.Models
 		public string Descricao { get; set; }
 		public int IdEmpresa { get; set; }
 		public int IdCategoria { get; set; }
+		public DateTime CriadoEm { get; set; }
 	}
 }
