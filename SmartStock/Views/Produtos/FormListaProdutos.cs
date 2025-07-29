@@ -180,7 +180,7 @@ namespace SmartStock.Views.Produtos
 				int idProduto = int.Parse(DgvListagem.Rows[e.RowIndex].Cells[0].Value.ToString());
 
 				string query = "SELECT idProduto, quantidadeAtual, ativo, nome, validade, " +
-					"estoqueIdeal, preco, status, estoqueMinimo, descricao, idEmpresa " +
+					" preco, status, descricao, idEmpresa " +
 					"FROM Produto WHERE idProduto = @idProduto";
 
 				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySqlParameter>()
@@ -194,14 +194,12 @@ namespace SmartStock.Views.Produtos
 				_produto = new Models.Produto();
 				_produto.IdProduto = int.Parse(dt.Rows[0]["idProduto"].ToString());
 				_produto.Descricao = dt.Rows[0]["descricao"].ToString();
-				_produto.EstoqueIdeal = int.Parse(dt.Rows[0]["estoqueIdeal"].ToString());
 				_produto.Quantidade = int.Parse(dt.Rows[0]["quantidadeAtual"].ToString());
 				_produto.Ativo = dt.Rows[0].IsNull("ativo") ? false	: Convert.ToBoolean(dt.Rows[0]["ativo"]);
 				_produto.Nome = dt.Rows[0]["nome"].ToString();
 				_produto.Preco = decimal.Parse(dt.Rows[0]["preco"].ToString());
 				_produto.Validade = dt.Rows[0].IsNull("validade") ? DateTime.MinValue : dt.Rows[0].Field<DateTime>("validade");
 				_produto.Status = _produto.Validade >= DateTime.Today ? "Normal" : "Vencido";
-				_produto.EstoqueMinimo = decimal.Parse(dt.Rows[0]["estoqueMinimo"].ToString());
 			}
 			catch (Exception ex)
 			{

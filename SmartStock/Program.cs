@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace SmartStock
 {
+    
     internal static class Program
     {
         /// <summary>
@@ -19,6 +20,7 @@ namespace SmartStock
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormLogin());
-        }
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("752470");
+		}
     }
 }
