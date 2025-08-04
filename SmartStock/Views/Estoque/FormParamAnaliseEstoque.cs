@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SmartStock.Views.Estoque
 {
-	public partial class FormAnaliseEstoque : Form
+	public partial class FormParamAnaliseEstoque : Form
 	{
-		public FormAnaliseEstoque()
+		public FormParamAnaliseEstoque()
 		{
 			InitializeComponent();
 		}

@@ -31,7 +31,7 @@ namespace SmartStock.Views
 		}
 
 		private void tsbAnalisarEstoque_Click(object sender, EventArgs e)
-		 => AbreFromMdi(new FormAnaliseEstoque());
+		 => AbreFromMdi(new FormParamAnaliseEstoque());
 
 		private void tsbDoacao_Click(object sender, EventArgs e)
 		 => AbreFromMdi(new FormDoacao());
