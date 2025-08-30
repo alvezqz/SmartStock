@@ -212,5 +212,9 @@ namespace SmartStock.Views.Produtos
 			}
 		}
 
+		private void FormListaProdutos_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

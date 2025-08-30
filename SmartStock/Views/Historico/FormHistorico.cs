@@ -29,7 +29,7 @@ namespace SmartStock.Views.Historico
 			ComboCategoria.DataSource = dt;
 			ComboCategoria.ValueMember = "idCategoria";
 			ComboCategoria.DisplayMember = "nomeCategoria";
-			ComboCategoria.SelectedIndex = 0;
+			ComboCategoria.SelectedIndex = dt.Rows.Count > 0 ? 0 : -1;
 
 			if(ComboCategoria.SelectedIndex >= 0)
 			{

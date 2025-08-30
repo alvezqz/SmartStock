@@ -38,6 +38,7 @@
 			this.tsbHistorico = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbSair = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -47,6 +48,7 @@
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbEstoque,
             this.tsbAnalisarEstoque,
+            this.toolStripButton1,
             this.toolStripSeparator1,
             this.tsbDoacao,
             this.toolStripSeparator3,
@@ -55,7 +57,7 @@
             this.tsbSair});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(1184, 50);
+			this.toolStrip1.Size = new System.Drawing.Size(1184, 62);
 			this.toolStrip1.TabIndex = 6;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -64,7 +66,7 @@
 			this.tsbEstoque.Image = ((System.Drawing.Image)(resources.GetObject("tsbEstoque.Image")));
 			this.tsbEstoque.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbEstoque.Name = "tsbEstoque";
-			this.tsbEstoque.Size = new System.Drawing.Size(53, 47);
+			this.tsbEstoque.Size = new System.Drawing.Size(53, 59);
 			this.tsbEstoque.Text = "Estoque";
 			this.tsbEstoque.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.tsbEstoque.Click += new System.EventHandler(this.tsbEstoque_Click);
@@ -123,10 +125,21 @@
 			this.tsbSair.Text = "Sair";
 			this.tsbSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			// 
+			// toolStripButton1
+			// 
+			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton1.Name = "toolStripButton1";
+			this.toolStripButton1.Size = new System.Drawing.Size(113, 59);
+			this.toolStripButton1.Text = "Categoria Produtos";
+			this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+			// 
 			// FormPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(1184, 761);
 			this.Controls.Add(this.toolStrip1);
 			this.IsMdiContainer = true;
@@ -150,5 +163,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripButton toolStripButton1;
 	}
 }

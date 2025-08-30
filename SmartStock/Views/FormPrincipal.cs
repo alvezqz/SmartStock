@@ -22,6 +22,7 @@ namespace SmartStock.Views
 		{
 			_empresa = empresa;
 			InitializeComponent();
+			tsbEstoque.PerformClick();
 		}
 
 		private void AbreFromMdi(Form form)
@@ -41,5 +42,8 @@ namespace SmartStock.Views
 
 		private void tsbEstoque_Click(object sender, EventArgs e)
 		=> AbreFromMdi(new FormListaProdutos());
+
+		private void toolStripButton1_Click(object sender, EventArgs e)
+		=> AbreFromMdi(new SmartStock.Views.Categoria.FormListaCategoria());
 	}
 }

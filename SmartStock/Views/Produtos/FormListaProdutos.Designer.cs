@@ -52,7 +52,7 @@
 			this.DgvListagem.Name = "DgvListagem";
 			this.DgvListagem.ReadOnly = true;
 			this.DgvListagem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.DgvListagem.Size = new System.Drawing.Size(784, 508);
+			this.DgvListagem.Size = new System.Drawing.Size(1017, 555);
 			this.DgvListagem.TabIndex = 0;
 			this.DgvListagem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListagem_CellClick);
 			// 
@@ -71,7 +71,7 @@
             this.tsbRelatorio});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(784, 50);
+			this.toolStrip1.Size = new System.Drawing.Size(1017, 50);
 			this.toolStrip1.TabIndex = 1;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -133,11 +133,12 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(784, 561);
+			this.ClientSize = new System.Drawing.Size(1020, 606);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.DgvListagem);
 			this.Name = "FormListaProdutos";
 			this.Text = "Produtos";
+			this.Load += new System.EventHandler(this.FormListaProdutos_Load);
 			((System.ComponentModel.ISupportInitialize)(this.DgvListagem)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
