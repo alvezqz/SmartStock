@@ -58,6 +58,8 @@ namespace SmartStock.Views
 					{
 						this.Hide();
 						frm.ShowDialog();
+						Dispose();
+						Close();
 					}
 				}
 				else

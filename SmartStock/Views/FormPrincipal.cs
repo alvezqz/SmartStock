@@ -45,5 +45,30 @@ namespace SmartStock.Views
 
 		private void toolStripButton1_Click(object sender, EventArgs e)
 		=> AbreFromMdi(new SmartStock.Views.Categoria.FormListaCategoria());
-	}
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!ConfirmarSaida())
+                e.Cancel = true;
+			else
+			{
+				Dispose();
+				Close();
+			}
+
+        }
+
+        private void tsbSair_Click(object sender, EventArgs e)
+        {
+            if (ConfirmarSaida())
+            {
+                Dispose();
+                this.Close();
+            }
+        }
+
+        private bool ConfirmarSaida()
+			=> Mensagem.Confirmacao("Deseja realmente sair do sistema?") == DialogResult.Yes;
+        
+    }
 }

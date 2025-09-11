@@ -15,7 +15,7 @@ namespace SmartStock.Views.Categoria
 {
 	public partial class FormListaCategoria : Form
 	{
-		private Models.Categoria Categoria = null;
+		private Models.Categoria Categoria = new Models.Categoria();
 
 		public FormListaCategoria()
 		{
@@ -36,7 +36,7 @@ namespace SmartStock.Views.Categoria
 			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "idCategoria", HeaderText = "Código" });
 			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "nomeCategoria", HeaderText = "Nome da Categoria" });
 			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "EstoqueIdeal", HeaderText = "Estoque Ideal" });
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridDateTimeColumn() { MappingName = "estoqueMinimo", HeaderText = "Estoque Mínimo" });
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "estoqueMinimo", HeaderText = "Estoque Mínimo" });
 			dgvListagem.DataSource = dt;
 			dgvListagem.Refresh();
 		}
@@ -54,10 +54,15 @@ namespace SmartStock.Views.Categoria
 		{
 			try
 			{
-				if (Categoria != null)
+                if (dgvListagem.CurrentItem is object obj)
+                {
+                    dynamic item = (dynamic)obj;
+                    Categoria.IdCategoria = Convert.ToInt32(item["idCategoria"]);
+                }
+                if (Categoria != null)
 				{
-
-					using (FormCadastrarCategoria frm = new FormCadastrarCategoria(Categoria?.IdCategoria))
+					int idCategoria = Categoria.IdCategoria;
+					using (FormCadastrarCategoria frm = new FormCadastrarCategoria(idCategoria))
 					{
 						frm.ShowDialog();
 						if (frm._save)
@@ -66,7 +71,7 @@ namespace SmartStock.Views.Categoria
 				}
 				else
 				{
-					Mensagem.Erro("Selecionar Doação para Editar");
+					Mensagem.Erro("Selecionar Categoria para Editar");
 				}
 			}
 			catch (Exception ex)
@@ -79,26 +84,31 @@ namespace SmartStock.Views.Categoria
 		{
 			try
 			{
-				if (Categoria != null)
+                if (dgvListagem.CurrentItem is object obj)
+                {
+                    dynamic item = (dynamic)obj;
+                    Categoria.IdCategoria = Convert.ToInt32(item["idCategoria"]);
+                }
+                if (Categoria != null)
 				{
-					DialogResult dr = Mensagem.Confirmacao("Deseja Excluir esse produto?");
+					DialogResult dr = Mensagem.Confirmacao("Deseja Excluir essa Categoria?");
 					if (dr == DialogResult.Yes)
 					{
-						string query = "DELETE FROM Doacao WHERE idDoacao = @idDoacao";
+						string query = "DELETE FROM Categoria WHERE idCategoria = @idCategoria";
 						bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 						{
-							new MySqlParameter("@idDoacao", Categoria.IdCategoria)
+							new MySqlParameter("@idCategoria", Categoria.IdCategoria)
 						});
 						if (resultado)
 						{
-							Mensagem.Sucesso("Doação Deletada Com Sucesso");
+							Mensagem.Sucesso("Categoria Deletada Com Sucesso");
 							tsbAtualizar.PerformClick();
 						}
 					}
 				}
 				else
 				{
-					Mensagem.Erro("Selecione uma doação para exclui-la");
+					Mensagem.Erro("Selecione uma categoria para exclui-la");
 				}
 			}
 			catch (Exception ex)
@@ -112,18 +122,14 @@ namespace SmartStock.Views.Categoria
 
 		private void dgvListagem_CellClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
 		{
-			try
-			{
-				if (dgvListagem.CurrentItem is object obj)
-				{
-					dynamic item = (dynamic)obj;
-					Categoria.IdCategoria = item.IdCategoria;
-				}
-			}
-			catch (Exception ex)
-			{
-				Mensagem.Erro(ex.Message);
-			}
+			//try
+			//{
+				
+			//}
+			//catch (Exception ex)
+			//{
+			//	Mensagem.Erro(ex.Message);
+			//}
 		}
 	}
 }

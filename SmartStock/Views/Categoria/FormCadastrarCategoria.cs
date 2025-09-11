@@ -10,86 +10,118 @@ using System.Windows.Forms;
 
 namespace SmartStock.Views.Categoria
 {
-	public partial class FormCadastrarCategoria : Form
-	{
-		public bool _save = false;
-		private int? _idCategoria;
+    public partial class FormCadastrarCategoria : Form
+    {
+        public bool _save = false;
+        private int? _idCategoria;
 
-		public FormCadastrarCategoria(int? idCategoria = null)
-		{
-			_idCategoria = idCategoria;
-			InitializeComponent();
-			CarregarDados();
-		}
 
-		private void CarregarDados()
-		{
-			if(_idCategoria != null)
-			{
-				string query = "SELECT idCategoria, idEmpresa, nomeCategoria, EstoqueIdeal, estoqueMinimo FROM Categoria WHERE idCategoria = @idCategoria";
-				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
-				{
-					new MySql.Data.MySqlClient.MySqlParameter("@idCategoria", _idCategoria)
-				}) ?? null;
+        public FormCadastrarCategoria(int? idCategoria = null)
+        {
+            _idCategoria = idCategoria;
+            InitializeComponent();
+            CarregarDados();
+        }
 
-				if(dt != null)
-				{
-					txtNomeCategoria.Text = dt.Rows[0]["nomeCategoria"].ToString();
-					NumIdeal.Value = int.Parse(dt.Rows[0]["EstoqueIdeal"].ToString());
-					NumMinimo.Value = int.Parse(dt.Rows[0]["estoqueMinimo"].ToString());
-				}
-			}
-		}
+        private void CarregarDados()
+        {
+            if (_idCategoria != null)
+            {
+                string query = "SELECT idCategoria, idEmpresa, nomeCategoria, EstoqueIdeal, estoqueMinimo FROM Categoria WHERE idCategoria = @idCategoria";
+                DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
+                {
+                    new MySql.Data.MySqlClient.MySqlParameter("@idCategoria", _idCategoria)
+                }) ?? null;
 
-		private void btnCancelar_Click(object sender, EventArgs e)
-			=> this.Close();
+                if (dt != null)
+                {
+                    txtNomeCategoria.Text = dt.Rows[0]["nomeCategoria"].ToString();
+                    NumIdeal.Value = int.Parse(dt.Rows[0]["EstoqueIdeal"].ToString());
+                    NumMinimo.Value = decimal.Parse(dt.Rows[0]["estoqueMinimo"].ToString());
+                }
+            }
+        }
 
-		private bool ValidarForm()
-		{
-			string msg = string.Empty;
+        private void btnCancelar_Click(object sender, EventArgs e)
+            => this.Close();
 
-			if (txtNomeCategoria.Text.Length <= 0)
-				msg += "\n - Defina o nome da Categoria";
-			if (NumIdeal.Value <= 0)
-				msg += "\n - Defina o estoque Ideal";
-			if (NumMinimo.Value <= 0)
-				msg += "\n - Defina o estoque Mímino";
+        private bool ValidarForm()
+        {
+            string msg = string.Empty;
 
-			if (!string.IsNullOrEmpty(msg))
-				Mensagem.Erro(msg);
-			return string.IsNullOrEmpty(msg);
-		}
+            if (txtNomeCategoria.Text.Length <= 0)
+                msg += "\n - Defina o nome da Categoria";
+            if (NumIdeal.Value <= 0)
+                msg += "\n - Defina o estoque Ideal";
+            if (NumMinimo.Value <= 0)
+                msg += "\n - Defina o estoque Mímino";
+            if (NumIdeal.Value < NumMinimo.Value)
+                msg += "\n - O estoque ideal não pode ser menor que o mínimo";
 
-		private void btnSalvar_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				if (ValidarForm())
-				{
-					string query = "INSERT INTO Categoria (idCategoria, idEmpresa, nomeCategoria, " +
-						"EstoqueIdeal, estoqueMinimo) VALUES (@idCategoria, @idEmpresa, @nomeCategoria, @EstoqueIdeal, @estoqueMinimo)";
+            if (!string.IsNullOrEmpty(msg))
+                Mensagem.Erro(msg);
+            return string.IsNullOrEmpty(msg);
+        }
 
-					bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
-					{
-						new MySql.Data.MySqlClient.MySqlParameter("@idCategoria", Controllers.CategoriaController.NovoId()),
-						new MySql.Data.MySqlClient.MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa),
-						new MySql.Data.MySqlClient.MySqlParameter("@nomeCategoria", txtNomeCategoria.Text),
-						new MySql.Data.MySqlClient.MySqlParameter("@EstoqueIdeal", NumIdeal.Value),
-						new MySql.Data.MySqlClient.MySqlParameter("@estoqueMinimo", NumMinimo.Value)
-					});
-					if (resultado)
-					{
-						Mensagem.Sucesso("Categoria Cadastrada com Sucesso");
-						_save = resultado;
-						this.Close();
-					}
-				}
-			}
-			catch(Exception ex)
-			{
-				Mensagem.Erro(ex.Message);
-			}
-			
-		}
-	}
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidarForm())
+                {
+                    if (_idCategoria == null)
+                    {
+                        string query = "INSERT INTO Categoria (idCategoria, idEmpresa, nomeCategoria, " +
+                        "EstoqueIdeal, estoqueMinimo) VALUES (@idCategoria, @idEmpresa, @nomeCategoria, @EstoqueIdeal, @estoqueMinimo)";
+
+                        bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
+                        {
+                            new MySql.Data.MySqlClient.MySqlParameter("@idCategoria", Controllers.CategoriaController.NovoId()),
+                            new MySql.Data.MySqlClient.MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa),
+                            new MySql.Data.MySqlClient.MySqlParameter("@nomeCategoria", txtNomeCategoria.Text),
+                            new MySql.Data.MySqlClient.MySqlParameter("@EstoqueIdeal", NumIdeal.Value),
+                            new MySql.Data.MySqlClient.MySqlParameter("@estoqueMinimo", NumMinimo.Value)
+                        });
+
+                        if (resultado)
+                        {
+                            Mensagem.Sucesso("Categoria Cadastrada com Sucesso");
+                            _save = resultado;
+                            this.Close();
+                        }
+                    }
+
+                    if(_idCategoria != null)
+                    {
+                        string query = "UPDATE Categoria SET " +
+                            "nomeCategoria = @nomeCategoria, " +
+                            "EstoqueIdeal = @estoqueIdeal, " +
+                            "estoqueMinimo = @estoqueMinimo " +
+                            "WHERE idCategoria = @idCategoria";
+
+                        bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
+                        {
+                            new MySql.Data.MySqlClient.MySqlParameter("@nomeCategoria", txtNomeCategoria.Text),
+                            new MySql.Data.MySqlClient.MySqlParameter("@estoqueIdeal", NumIdeal.Value),
+                            new MySql.Data.MySqlClient.MySqlParameter("@estoqueMinimo", NumMinimo.Value),
+                            new MySql.Data.MySqlClient.MySqlParameter("@idCategoria", _idCategoria)
+                        });
+
+                        if (resultado)
+                        {
+                            Mensagem.Sucesso("Categoria Alterada com Sucesso");
+                            _save = resultado;
+                            this.Close();
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Mensagem.Erro(ex.Message);
+            }
+
+        }
+    }
 }
