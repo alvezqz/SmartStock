@@ -15,7 +15,7 @@ namespace SmartStock.Views.Categoria
 		public bool _save = false;
 		private int? _idCategoria;
 
-		public FormCadastrarCategoria(int? idCategoria = null)
+		public FormCadastrarCategoria(int? idCategoria)
 		{
 			_idCategoria = idCategoria;
 			InitializeComponent();

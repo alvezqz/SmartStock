@@ -65,8 +65,8 @@ namespace SmartStock.Views.Doacao
 				}) ?? null;
 				if(dt != null)
 				{
-					lblMaximoQuantidade.Text = $"Quantidade Máx: {dt.Rows[0]["quantidadeAtual"]}";
-					numQuantidade.Maximum = int.Parse(lblMaximoQuantidade.Text);
+					lblMaximoQuantidade.Text = $"Quantidade Máx: {dt.Rows[0]["quantidadeAtual"].ToString()}";
+					numQuantidade.Maximum = int.Parse(dt.Rows[0]["quantidadeAtual"].ToString());
 					_idProduto = int.Parse(dt.Rows[0]["idProduto"].ToString());
 				}
 

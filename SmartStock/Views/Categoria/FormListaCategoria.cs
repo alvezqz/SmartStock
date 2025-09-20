@@ -15,7 +15,7 @@ namespace SmartStock.Views.Categoria
 {
 	public partial class FormListaCategoria : Form
 	{
-		private Models.Categoria Categoria = null;
+		private Models.Categoria Categoria = new Models.Categoria();
 
 		public FormListaCategoria()
 		{
@@ -36,15 +36,16 @@ namespace SmartStock.Views.Categoria
 			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "idCategoria", HeaderText = "Código" });
 			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "nomeCategoria", HeaderText = "Nome da Categoria" });
 			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "EstoqueIdeal", HeaderText = "Estoque Ideal" });
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridDateTimeColumn() { MappingName = "estoqueMinimo", HeaderText = "Estoque Mínimo" });
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "estoqueMinimo", HeaderText = "Estoque Mínimo" });
 			dgvListagem.DataSource = dt;
 			dgvListagem.Refresh();
 		}
 
 		private void toolStripButton1_Click(object sender, EventArgs e)
 		{
-			using (FormCadastrarCategoria frm = new FormCadastrarCategoria())
+			using (FormCadastrarCategoria frm = new FormCadastrarCategoria(null))
 			{
+				frm.ShowDialog();
 				if (frm._save)
 					tsbAtualizar.PerformClick();
 			}
@@ -54,10 +55,23 @@ namespace SmartStock.Views.Categoria
 		{
 			try
 			{
-				if (Categoria != null)
+				if (dgvListagem.CurrentItem is DataRowView row)
 				{
+					int idCategoria = 0;
 
-					using (FormCadastrarCategoria frm = new FormCadastrarCategoria(Categoria?.IdCategoria))
+					if (row["idCategoria"] != DBNull.Value)
+					{
+						// tenta converter com segurança
+						int.TryParse(row["idCategoria"].ToString(), out idCategoria);
+					}
+
+					if (idCategoria == 0)
+					{
+						Mensagem.Erro("O código da categoria não é válido.");
+						return;
+					}
+					MessageBox.Show(idCategoria.ToString());
+					using (FormCadastrarCategoria frm = new FormCadastrarCategoria(idCategoria))
 					{
 						frm.ShowDialog();
 						if (frm._save)
@@ -66,7 +80,7 @@ namespace SmartStock.Views.Categoria
 				}
 				else
 				{
-					Mensagem.Erro("Selecionar Doação para Editar");
+					Mensagem.Erro("Selecionar a Categoria para Editar");
 				}
 			}
 			catch (Exception ex)
@@ -75,30 +89,39 @@ namespace SmartStock.Views.Categoria
 			}
 		}
 
+
 		private void tsbExcluir_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				if (Categoria != null)
+				if (dgvListagem.CurrentItem is DataRowView row)
 				{
-					DialogResult dr = Mensagem.Confirmacao("Deseja Excluir esse produto?");
-					if (dr == DialogResult.Yes)
+					Categoria = new Models.Categoria()
 					{
-						string query = "DELETE FROM Doacao WHERE idDoacao = @idDoacao";
-						bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
+						IdCategoria = Convert.ToInt32(row["Código"])
+					};
+
+					if (Categoria != null)
+					{
+						DialogResult dr = Mensagem.Confirmacao("Deseja Excluir esse produto?");
+						if (dr == DialogResult.Yes)
 						{
-							new MySqlParameter("@idDoacao", Categoria.IdCategoria)
-						});
-						if (resultado)
-						{
-							Mensagem.Sucesso("Doação Deletada Com Sucesso");
-							tsbAtualizar.PerformClick();
+							string query = "DELETE FROM Categoria WHERE idCategoria = @idCategoria";
+							bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
+							{
+								new MySqlParameter("@idCategoria", Categoria.IdCategoria)
+							});
+							if (resultado)
+							{
+								Mensagem.Sucesso("Categoria Deletada Com Sucesso");
+								tsbAtualizar.PerformClick();
+							}
 						}
 					}
 				}
 				else
 				{
-					Mensagem.Erro("Selecione uma doação para exclui-la");
+					Mensagem.Erro("Selecione uma categoria para exclui-la");
 				}
 			}
 			catch (Exception ex)
@@ -114,11 +137,14 @@ namespace SmartStock.Views.Categoria
 		{
 			try
 			{
-				if (dgvListagem.CurrentItem is object obj)
+				if (dgvListagem.CurrentItem is DataRowView row)
 				{
-					dynamic item = (dynamic)obj;
-					Categoria.IdCategoria = item.IdCategoria;
+					Categoria = new Models.Categoria()
+					{
+						IdCategoria = Convert.ToInt32(row["idCategoria"])
+					};
 				}
+
 			}
 			catch (Exception ex)
 			{

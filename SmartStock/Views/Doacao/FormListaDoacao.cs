@@ -33,7 +33,7 @@ namespace SmartStock.Views.Doacao
 
 		private void CarregarDados()
 		{
-			string query = "SELECT idDoacao, nome , nomeInstituicao, quantidade, dataDoacao, status FROM Doacao " +
+			string query = "SELECT idDoacao, nome , nomeInstituicao, quantidade, dataDoacao, d.status FROM Doacao d" +
 				"INNER JOIN Produto USING(idProduto) WHERE idEmpresa = @idEmpresa";
 			DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
 			{
