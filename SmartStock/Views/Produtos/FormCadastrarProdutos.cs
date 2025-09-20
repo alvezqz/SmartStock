@@ -57,7 +57,7 @@ namespace SmartStock.Views
 			if(_idProduto != null)
 			{
 				string query = "SELECT idProduto, nome, quantidadeAtual, " +
-					"estoqueMinimo, validade, preco, status, descricao, idEmpresa, idCategoria " +
+					"validade, preco, status, descricao, idEmpresa, ativo, idCategoria " +
 					"FROM Produto WHERE idProduto = @IdProduto";
 				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySqlParameter>()
 				{
@@ -82,7 +82,7 @@ namespace SmartStock.Views
 				txtDescricao.Text = produto.Descricao;
 				txtPreco.Text = produto.Preco.ToString();
 				txtQuantidade.Text = produto.Quantidade.ToString();
-				ComboCategoria.SelectedIndex = produto.IdCategoria;
+				ComboCategoria.SelectedIndex = produto.IdCategoria - 1;
 			}
 		}
 
@@ -127,18 +127,25 @@ namespace SmartStock.Views
 				}
 				if(produto != null)
 				{
-					string query = "UPDATE Produto (nome, quantidadeAtual, validade, " +
-						"preco, descricao, idCategoria" +
-						"SET (@nome, @quantidadeAtual, @validade, @preco, " +
-						"@descricao, @idCategoria) " +
+
+					string query = "UPDATE Produto SET " +
+						"nome = @nome, " +
+						"quantidadeAtual = @quantidadeAtual, " +
+						"validade = @validade, " +
+						"preco = @preco, " +
+						"descricao = @descricao, " +
+						"ativo = @ativo," +
+						"idCategoria = @idCategoria " +
 						"WHERE idProduto = @idProduto";
-					bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
+
+                    bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
 						new MySqlParameter("@nome", txtNome.Text),
 						new MySqlParameter("@quantidadeAtual", int.Parse(txtQuantidade.Text)),
 						new MySqlParameter("@validade", dateValidade.Value.Date),
 						new MySqlParameter("@preco", decimal.Parse(txtPreco.Text)),
 						new MySqlParameter("@descricao", txtDescricao.Text),
+						new MySqlParameter("@ativo", CheckAtivo.Checked),
 						new MySqlParameter("@idProduto", _idProduto),
 						new MySqlParameter("@idCategoria", ComboCategoria.SelectedValue)
 					});

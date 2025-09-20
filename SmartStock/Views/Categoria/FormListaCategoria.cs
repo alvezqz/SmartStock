@@ -55,22 +55,14 @@ namespace SmartStock.Views.Categoria
 		{
 			try
 			{
-				if (dgvListagem.CurrentItem is DataRowView row)
+                if (dgvListagem.CurrentItem is object obj)
+                {
+                    dynamic item = (dynamic)obj;
+                    Categoria.IdCategoria = Convert.ToInt32(item["idCategoria"]);
+                }
+                if (Categoria != null)
 				{
-					int idCategoria = 0;
-
-					if (row["idCategoria"] != DBNull.Value)
-					{
-						// tenta converter com segurança
-						int.TryParse(row["idCategoria"].ToString(), out idCategoria);
-					}
-
-					if (idCategoria == 0)
-					{
-						Mensagem.Erro("O código da categoria não é válido.");
-						return;
-					}
-					MessageBox.Show(idCategoria.ToString());
+					int idCategoria = Categoria.IdCategoria;
 					using (FormCadastrarCategoria frm = new FormCadastrarCategoria(idCategoria))
 					{
 						frm.ShowDialog();
@@ -80,7 +72,7 @@ namespace SmartStock.Views.Categoria
 				}
 				else
 				{
-					Mensagem.Erro("Selecionar a Categoria para Editar");
+					Mensagem.Erro("Selecionar Categoria para Editar");
 				}
 			}
 			catch (Exception ex)
@@ -94,28 +86,25 @@ namespace SmartStock.Views.Categoria
 		{
 			try
 			{
-				if (dgvListagem.CurrentItem is DataRowView row)
+                if (dgvListagem.CurrentItem is object obj)
+                {
+                    dynamic item = (dynamic)obj;
+                    Categoria.IdCategoria = Convert.ToInt32(item["idCategoria"]);
+                }
+                if (Categoria != null)
 				{
-					Categoria = new Models.Categoria()
+					DialogResult dr = Mensagem.Confirmacao("Deseja Excluir essa Categoria?");
+					if (dr == DialogResult.Yes)
 					{
-						IdCategoria = Convert.ToInt32(row["Código"])
-					};
-
-					if (Categoria != null)
-					{
-						DialogResult dr = Mensagem.Confirmacao("Deseja Excluir esse produto?");
-						if (dr == DialogResult.Yes)
+						string query = "DELETE FROM Categoria WHERE idCategoria = @idCategoria";
+						bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 						{
-							string query = "DELETE FROM Categoria WHERE idCategoria = @idCategoria";
-							bool resultado = FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
-							{
-								new MySqlParameter("@idCategoria", Categoria.IdCategoria)
-							});
-							if (resultado)
-							{
-								Mensagem.Sucesso("Categoria Deletada Com Sucesso");
-								tsbAtualizar.PerformClick();
-							}
+							new MySqlParameter("@idCategoria", Categoria.IdCategoria)
+						});
+						if (resultado)
+						{
+							Mensagem.Sucesso("Categoria Deletada Com Sucesso");
+							tsbAtualizar.PerformClick();
 						}
 					}
 				}
@@ -135,21 +124,14 @@ namespace SmartStock.Views.Categoria
 
 		private void dgvListagem_CellClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
 		{
-			try
-			{
-				if (dgvListagem.CurrentItem is DataRowView row)
-				{
-					Categoria = new Models.Categoria()
-					{
-						IdCategoria = Convert.ToInt32(row["idCategoria"])
-					};
-				}
-
-			}
-			catch (Exception ex)
-			{
-				Mensagem.Erro(ex.Message);
-			}
+			//try
+			//{
+				
+			//}
+			//catch (Exception ex)
+			//{
+			//	Mensagem.Erro(ex.Message);
+			//}
 		}
 	}
 }

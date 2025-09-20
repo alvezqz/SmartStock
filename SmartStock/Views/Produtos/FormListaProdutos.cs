@@ -122,8 +122,8 @@ namespace SmartStock.Views.Produtos
 			{
 				if(_produto != null)
 				{
-					
-					using (FormCadastrarProdutos frm = new FormCadastrarProdutos(_produto?.IdProduto))
+					int idProduto = _produto.IdProduto;
+					using (FormCadastrarProdutos frm = new FormCadastrarProdutos(idProduto))
 					{
 						frm.ShowDialog();
 						if(frm._save)
