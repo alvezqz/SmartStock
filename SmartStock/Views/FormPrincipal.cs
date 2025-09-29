@@ -35,7 +35,7 @@ namespace SmartStock.Views
 		 => AbreFromMdi(new FormParamAnaliseEstoque());
 
 		private void tsbDoacao_Click(object sender, EventArgs e)
-		 => AbreFromMdi(new FormDoacao());
+		 => AbreFromMdi(new FormListaDoacao());
 
 		private void tsbHistorico_Click(object sender, EventArgs e)
 		 => AbreFromMdi(new FormHistorico());
@@ -69,6 +69,8 @@ namespace SmartStock.Views
 
         private bool ConfirmarSaida()
 			=> Mensagem.Confirmacao("Deseja realmente sair do sistema?") == DialogResult.Yes;
-        
-    }
+
+		private void tsbApresentarDoacao_Click(object sender, EventArgs e)
+			=> AbreFromMdi(new FormApresentaDoacao());
+	}
 }

@@ -30,7 +30,7 @@ namespace SmartStock.Controllers
 			var lista = new List<Models.Partials.Produto>();
 			string query = "SELECT idProduto, quantidadeAtual, ativo, nome, " +
 			"validade, preco, descricao " +
-			"FROM Produto WHERE idEmpresa = @idEmpresa";
+			"FROM Produto WHERE idEmpresa = @idEmpresa AND ativo = 1";
 			DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
 			{
 				new MySql.Data.MySqlClient.MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa)

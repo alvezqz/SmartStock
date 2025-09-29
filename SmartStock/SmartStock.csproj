@@ -165,6 +165,7 @@
     <Compile Include="Controllers\MovimentoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Partials\DoacaoLista.cs" />
     <Compile Include="Models\Partials\Produto.cs" />
     <Compile Include="Services\Mensagem.cs" />
     <Compile Include="Models\Doacao.cs" />
@@ -268,11 +269,17 @@
     <EmbeddedResource Include="Views\Categoria\FormListaCategoria.resx">
       <DependentUpon>FormListaCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doacao\FormApresentaDoacao.resx">
+      <DependentUpon>FormApresentaDoacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Doacao\FormDoacao.resx">
       <DependentUpon>FormDoacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Doacao\FormListaDoacao.resx">
       <DependentUpon>FormListaDoacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Estoque\FormParamAnaliseEstoque.resx">
+      <DependentUpon>FormParamAnaliseEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Estoque\FormRelAnaliseEstoque.resx">
       <DependentUpon>FormRelAnaliseEstoque.cs</DependentUpon>

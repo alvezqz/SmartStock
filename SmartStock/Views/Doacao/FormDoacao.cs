@@ -35,38 +35,38 @@ namespace SmartStock.Views.Doacao
 			comboProduto.DisplayMember = "nome";
 
 
-			if(_idDoacao != null)
+			if (_idDoacao != null)
 			{
 				query = "SELECT idDoacao, nomeInstituicao, quantidade, dataDoacao, status, idProduto FROM Doacao WHERE idDoacao = @idDoacao";
 				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
 				{
 					new MySql.Data.MySqlClient.MySqlParameter("@idDoacao", _idDoacao)
 				}) ?? null;
-				if(dt != null)
+				if (dt != null)
 				{
 					comboProduto.SelectedValue = dt.Rows[0]["idProduto"];
-					comboStatus.SelectedIndex = dt.Rows[0]["status"].ToString() == "A" ? 1 : 
+					comboStatus.SelectedIndex = dt.Rows[0]["status"].ToString() == "A" ? 1 :
 						dt.Rows[0]["status"].ToString() == "C" ? 2 : 0;
 					txtInstituicao.Text = dt.Rows[0]["nomeInstituicao"].ToString();
 					numQuantidade.Value = int.Parse(dt.Rows[0]["quantidade"].ToString());
- 				}
+				}
 			}
 
 		}
 
 		private void btnPesquisar_Click(object sender, EventArgs e)
 		{
-			if(comboProduto.SelectedIndex >= 0)
+			if (comboProduto.SelectedIndex >= 0)
 			{
 				string query = "SELECT idProduto, quantidadeAtual FROM Produto WHERE idProduto = @idProduto";
 				DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
 				{
 					new MySql.Data.MySqlClient.MySqlParameter("@idProduto", comboProduto.SelectedValue)
 				}) ?? null;
-				if(dt != null)
+				if (dt != null)
 				{
-                    numQuantidade.Maximum = decimal.Parse(dt.Rows[0]["quantidadeAtual"].ToString());
-                    lblMaximoQuantidade.Text = $"Quantidade Máx: {numQuantidade.Maximum}";
+					numQuantidade.Maximum = decimal.Parse(dt.Rows[0]["quantidadeAtual"].ToString());
+					lblMaximoQuantidade.Text = $"Quantidade Máx: {numQuantidade.Maximum}";
 					_idProduto = int.Parse(dt.Rows[0]["idProduto"].ToString());
 				}
 
@@ -90,7 +90,7 @@ namespace SmartStock.Views.Doacao
 				msg += "\n - Digite uma quantidade certa";
 			if (comboStatus.SelectedIndex < 0)
 				msg += "\n - Digite um status para a doação";
-			if(!String.IsNullOrEmpty(msg))
+			if (!String.IsNullOrEmpty(msg))
 				Mensagem.Erro(msg);
 			return string.IsNullOrEmpty(msg);
 		}
@@ -115,19 +115,43 @@ namespace SmartStock.Views.Doacao
 						});
 						if (resultado)
 						{
-							query = "UPDATE Produto SET ativo = 0 WHERE idProduto = @idProduto";
+							var quantMax = numQuantidade.Maximum;
 
-							resultado = FormLogin.bd.ExecutarComando(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
+							if (quantMax == numQuantidade.Value)
 							{
-								new MySql.Data.MySqlClient.MySqlParameter("@idProduto", _idProduto)
-							});
+								query = "UPDATE Produto SET ativo = 0, status = @status WHERE idProduto = @idProduto";
 
-							if (resultado)
-							{
-								Mensagem.Sucesso("Doação feita com Sucesso");
-								_save = resultado;
-								this.Close();
+								resultado = FormLogin.bd.ExecutarComando(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
+								{
+									new MySql.Data.MySqlClient.MySqlParameter("@idProduto", _idProduto),
+									new MySql.Data.MySqlClient.MySqlParameter("@status", "D")
+								});
+
+								if (resultado)
+								{
+									Mensagem.Sucesso("Doação feita com Sucesso");
+									_save = resultado;
+									this.Close();
+								}
 							}
+							else
+							{
+								query = "UPDATE Produto SET quantidadeAtual = @quantidadeAtual WHERE idProduto = @idProduto";
+
+								resultado = FormLogin.bd.ExecutarComando(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
+								{
+									new MySql.Data.MySqlClient.MySqlParameter("@idProduto", _idProduto),
+									new MySql.Data.MySqlClient.MySqlParameter("@quantidadeAtual", quantMax - numQuantidade.Value)
+								});
+
+								if (resultado)
+								{
+									Mensagem.Sucesso("Doação feita com Sucesso");
+									_save = resultado;
+									this.Close();
+								}
+							}
+
 						}
 					}
 					else
@@ -135,7 +159,7 @@ namespace SmartStock.Views.Doacao
 						Mensagem.Erro("Erro ao selecionar código do Produto");
 					}
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 				Mensagem.Erro(ex.Message);
 			}

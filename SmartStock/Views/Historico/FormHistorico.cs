@@ -42,7 +42,7 @@ namespace SmartStock.Views.Historico
 				DgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridDateTimeColumn() { MappingName = "Validade", HeaderText = "Data Validade" });
 				DgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "Descricao", HeaderText = "Descricao" });
 				DgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "Status", HeaderText = "Status" });
-				DgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "Ativo", HeaderText = "Ativo" });
+				DgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn() { MappingName = "Ativo", HeaderText = "Ativo" });
 
 				DgvListagem.DataSource = Lista(int.Parse(ComboCategoria.SelectedValue.ToString()));
 				DgvListagem.Refresh();

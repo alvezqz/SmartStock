@@ -15,7 +15,7 @@ namespace SmartStock.Views.Doacao
 {
 	public partial class FormListaDoacao : Form
 	{
-		private Models.Doacao doacao = null;
+		private Models.Doacao doacao = new Models.Doacao();
 		public FormListaDoacao()
 		{
 			InitializeComponent();
@@ -33,21 +33,38 @@ namespace SmartStock.Views.Doacao
 
 		private void CarregarDados()
 		{
-			string query = "SELECT idDoacao, nome , nomeInstituicao, quantidade, dataDoacao, d.status FROM Doacao d" +
+			List<Models.Partials.DoacaoLista> lista = new List<Models.Partials.DoacaoLista>();
+
+			string query = "SELECT idDoacao, nome , nomeInstituicao, quantidade, dataDoacao, d.status FROM Doacao d " +
 				"INNER JOIN Produto USING(idProduto) WHERE idEmpresa = @idEmpresa";
 			DataTable dt = FormLogin.bd.ExecutarConsulta(query, new List<MySql.Data.MySqlClient.MySqlParameter>()
 			{
 				new MySql.Data.MySqlClient.MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa)
 			});
+
+			foreach (System.Data.DataRow item in dt.Rows)
+			{
+				 var doacao = new Models.Partials.DoacaoLista()
+				 {
+					 IdDoacao = Convert.ToInt32(item["idDoacao"]),
+					 Nome = item["nome"].ToString(),
+					 NomeInstituicao = item["nomeInstituicao"].ToString(),
+					 Quantidade = Convert.ToInt32(item["quantidade"]),
+					 DataDoacao = item["dataDoacao"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(item["dataDoacao"]),
+					 Status = item["status"].ToString()
+				 };
+				lista.Add(doacao);
+			}
+
 			if (dgvListagem.ColumnCount > 0)
 				dgvListagem.Columns.Clear();
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "idDoacao", HeaderText = "Id" });
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "nome", HeaderText = "NomeProduto" });
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "nomeInstituicao", HeaderText = "Nome Instituicao" });
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridDateTimeColumn() { MappingName = "dataDoacao", HeaderText = "Data Doação" });
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "quantidade", HeaderText = "Quantidade" });
-			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "status", HeaderText = "Status" });
-			dgvListagem.DataSource = dt;
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "IdDoacao", HeaderText = "Id" });
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "Nome", HeaderText = "NomeProduto" });
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "NomeInstituicao", HeaderText = "Nome Instituicao" });
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridDateTimeColumn() { MappingName = "DataDoacao", HeaderText = "Data Doação" });
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "Quantidade", HeaderText = "Quantidade" });
+			dgvListagem.Columns.Add(new Syncfusion.WinForms.DataGrid.GridTextColumn() { MappingName = "StatusFormatado", HeaderText = "Status" });
+			dgvListagem.DataSource = lista;
 			dgvListagem.Refresh();
 
 		}

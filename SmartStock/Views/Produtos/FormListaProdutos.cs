@@ -59,21 +59,9 @@ namespace SmartStock.Views.Produtos
 				});
 				DgvListagem.Columns.Add(new DataGridViewTextBoxColumn
 				{
-					Name = "colEstoqueIdeal",
-					HeaderText = "Estoque Ideal",
-					DataPropertyName = "EstoqueIdeal"
-				});
-				DgvListagem.Columns.Add(new DataGridViewTextBoxColumn
-				{
 					Name = "colPreco",
 					HeaderText = "Preço",
 					DataPropertyName = "Preco"
-				});
-				DgvListagem.Columns.Add(new DataGridViewTextBoxColumn
-				{
-					Name = "colEstoqueMinimo",
-					HeaderText = "Estoque Mínimo",
-					DataPropertyName = "EstoqueMinimo"
 				});
 				DgvListagem.Columns.Add(new DataGridViewTextBoxColumn
 				{
@@ -213,6 +201,11 @@ namespace SmartStock.Views.Produtos
 		}
 
 		private void FormListaProdutos_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tsbRelatorio_Click(object sender, EventArgs e)
 		{
 
 		}

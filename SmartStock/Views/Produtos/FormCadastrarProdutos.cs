@@ -82,7 +82,7 @@ namespace SmartStock.Views
 				txtDescricao.Text = produto.Descricao;
 				txtPreco.Text = produto.Preco.ToString();
 				txtQuantidade.Text = produto.Quantidade.ToString();
-				ComboCategoria.SelectedIndex = produto.IdCategoria - 1;
+				ComboCategoria.SelectedValue = produto.IdCategoria;
 			}
 		}
 

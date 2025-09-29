@@ -128,6 +128,7 @@
 			this.tsbRelatorio.Name = "tsbRelatorio";
 			this.tsbRelatorio.Size = new System.Drawing.Size(74, 47);
 			this.tsbRelatorio.Text = "Relatório";
+			this.tsbRelatorio.Click += new System.EventHandler(this.tsbRelatorio_Click);
 			// 
 			// FormListaProdutos
 			// 
