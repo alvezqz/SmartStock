@@ -20,7 +20,7 @@ namespace SmartStock.Context
 		{
 			MySqlConnection conn = new MySqlConnection(conexao);
 			if (conn.State != ConnectionState.Open)
-				conn.Open();
+					conn.Open();
 			return conn;
 		}
 

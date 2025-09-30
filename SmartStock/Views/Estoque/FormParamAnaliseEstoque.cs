@@ -15,7 +15,10 @@ namespace SmartStock.Views.Estoque
 		public FormParamAnaliseEstoque()
 		{
 			InitializeComponent();
-			CarregarComboCategoria();	
+			CarregarComboCategoria();
+			NumAno.Minimum = 2000;
+			NumAno.Maximum = DateTime.Today.Year;
+			NumAno.Value = DateTime.Today.Year;
 		}
 
 		private void btnGerar_Click(object sender, EventArgs e)
@@ -48,13 +51,13 @@ namespace SmartStock.Views.Estoque
 		{
 			string msg = string.Empty;
 
-			if (NumAno.Value > 0 && NumAno.Value > DateTime.Now.Year)
+			if (NumAno.Value > 0 && NumAno.Value <= DateTime.Now.Year)
 			{
 				DataTable dt = FormLogin.bd.ExecutarConsulta("SELECT idProduto, nome FROM Produto WHERE idEmpresa = @idEmpresa AND year(CriadoEm) = @CriadoEm",
 				new List<MySql.Data.MySqlClient.MySqlParameter>()
 				{
 					new MySql.Data.MySqlClient.MySqlParameter("@idEmpresa", FormPrincipal._empresa.IdEmpresa),
-					new MySql.Data.MySqlClient.MySqlParameter("@CriadoEm", Convert.ToDateTime(NumAno.Value).Year)
+					new MySql.Data.MySqlClient.MySqlParameter("@CriadoEm", NumAno.Value)
 				}) ?? null;
 
 				if(dt == null)
