@@ -36,8 +36,6 @@
 			this.tsbExcluir = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbAtualizar = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-			this.tsbRelatorio = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.DgvListagem)).BeginInit();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -66,9 +64,7 @@
             this.tsbEditar,
             this.tsbExcluir,
             this.toolStripSeparator3,
-            this.tsbAtualizar,
-            this.toolStripSeparator4,
-            this.tsbRelatorio});
+            this.tsbAtualizar});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(1017, 50);
@@ -116,20 +112,6 @@
 			this.tsbAtualizar.Text = "Atualizar";
 			this.tsbAtualizar.Click += new System.EventHandler(this.tsbAtualizar_Click);
 			// 
-			// toolStripSeparator4
-			// 
-			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 50);
-			// 
-			// tsbRelatorio
-			// 
-			this.tsbRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("tsbRelatorio.Image")));
-			this.tsbRelatorio.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbRelatorio.Name = "tsbRelatorio";
-			this.tsbRelatorio.Size = new System.Drawing.Size(74, 47);
-			this.tsbRelatorio.Text = "Relatório";
-			this.tsbRelatorio.Click += new System.EventHandler(this.tsbRelatorio_Click);
-			// 
 			// FormListaProdutos
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,8 +135,6 @@
 		private System.Windows.Forms.ToolStripButton tsbEditar;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripButton tsbAtualizar;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-		private System.Windows.Forms.ToolStripButton tsbRelatorio;
 		private System.Windows.Forms.ToolStripButton tsbExcluir;
 		private System.Windows.Forms.DataGridView DgvListagem;
 	}

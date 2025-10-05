@@ -54,7 +54,7 @@ namespace SmartStock.Views.Historico
 		{
 			var lista = new List<Models.Partials.Produto>();
 			string query = "SELECT idProduto, nome, quantidadeAtual, preco, " +
-			"validade, descricao, status, ativo, SUM(quantidade) " +
+			"validade, descricao, p.status, ativo, SUM(quantidade) AS QuantidadeDoada" +
 			"FROM Produto p " +
 			"LEFT JOIN Doacao d USING(idProduto) WHERE idEmpresa = @idEmpresa AND idCategoria = @idCategoria " +
 			"GROUP BY p.idProduto";
@@ -75,6 +75,7 @@ namespace SmartStock.Views.Historico
 				produto.Preco = row.IsNull("preco") ? 0.0m : row.Field<decimal>("preco");
 				produto.Validade = row.IsNull("validade") ? DateTime.MinValue : row.Field<DateTime>("validade");
 				produto.Status = row.Field<string>("status") == "N" ? "Normal" : "Vencido";
+				produto.QuantDoada = row.IsNull("QuantidadeDoada") ? 0 : row.Field<int>("QuantidadeDoada");
 				lista.Add(produto);
 			}
 			return lista;

@@ -16,7 +16,6 @@ namespace SmartStock.Models.Partials
 		public string Descricao { get; set; }	
 		public string Status { get; set; }
 		public bool? Ativo { get; set; }
-
 		public int QuantDoada { get; set; }
 	}
 }
