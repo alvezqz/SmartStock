@@ -262,6 +262,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\Categoria\FormCadastrarCategoria.resx">
       <DependentUpon>FormCadastrarCategoria.cs</DependentUpon>
@@ -319,6 +320,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\12718d6e44cb810be32440abbfdcefba19483183.jpg" />
+    <Content Include="Resources\3e70845e253fdbcb70d74af06edad5693fde1dc3.jpg" />
+    <Content Include="Resources\9c3d2fc132272d61045baba1e7393ff9e88de588.png" />
+    <None Include="Resources\Doacao.png" />
+    <None Include="Resources\ApresentarDoacao.png" />
+    <Content Include="Resources\icons8-add-36.png" />
+    <Content Include="Resources\icons8-analytics-16.png" />
+    <Content Include="Resources\icons8-analytics-36.png" />
+    <Content Include="Resources\icons8-category-16.png" />
+    <Content Include="Resources\icons8-category-36.png" />
+    <Content Include="Resources\icons8-delete-36.png" />
+    <Content Include="Resources\icons8-donate-16.png" />
+    <Content Include="Resources\icons8-donate-36.png" />
+    <Content Include="Resources\icons8-edit-36.png" />
+    <Content Include="Resources\icons8-history-16.png" />
+    <Content Include="Resources\icons8-history-36.png" />
+    <Content Include="Resources\icons8-leave-36.png" />
+    <Content Include="Resources\icons8-stock-16.png" />
+    <Content Include="Resources\icons8-stock-36.png" />
+    <None Include="Resources\icons8-tomato-36.png" />
+    <Content Include="Resources\icons8-update-36.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

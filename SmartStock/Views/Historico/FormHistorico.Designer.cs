@@ -82,7 +82,7 @@
 			this.Controls.Add(this.ComboCategoria);
 			this.Controls.Add(this.DgvListagem);
 			this.Name = "FormHistorico";
-			this.Text = "FormHistorico";
+			this.Text = "Histórico";
 			((System.ComponentModel.ISupportInitialize)(this.DgvListagem)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

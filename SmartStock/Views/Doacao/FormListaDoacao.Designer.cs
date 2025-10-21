@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaDoacao));
 			this.dgvListagem = new Syncfusion.WinForms.DataGrid.SfDataGrid();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -70,7 +69,7 @@
 			// 
 			// toolStripButton1
 			// 
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.Image = global::SmartStock.Properties.Resources.icons8_add_36;
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(78, 40);
@@ -79,7 +78,7 @@
 			// 
 			// tsbEditar
 			// 
-			this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+			this.tsbEditar.Image = global::SmartStock.Properties.Resources.icons8_edit_36;
 			this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbEditar.Name = "tsbEditar";
 			this.tsbEditar.Size = new System.Drawing.Size(57, 40);
@@ -88,7 +87,7 @@
 			// 
 			// tsbExcluir
 			// 
-			this.tsbExcluir.Image = ((System.Drawing.Image)(resources.GetObject("tsbExcluir.Image")));
+			this.tsbExcluir.Image = global::SmartStock.Properties.Resources.icons8_delete_36;
 			this.tsbExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbExcluir.Name = "tsbExcluir";
 			this.tsbExcluir.Size = new System.Drawing.Size(62, 40);
@@ -102,7 +101,7 @@
 			// 
 			// tsbAtualizar
 			// 
-			this.tsbAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAtualizar.Image")));
+			this.tsbAtualizar.Image = global::SmartStock.Properties.Resources.icons8_update_36;
 			this.tsbAtualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbAtualizar.Name = "tsbAtualizar";
 			this.tsbAtualizar.Size = new System.Drawing.Size(73, 40);
@@ -117,7 +116,7 @@
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.dgvListagem);
 			this.Name = "FormListaDoacao";
-			this.Text = "FormListaDoacao";
+			this.Text = "Lista Doação";
 			((System.ComponentModel.ISupportInitialize)(this.dgvListagem)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();

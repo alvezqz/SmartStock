@@ -102,5 +102,10 @@ namespace SmartStock.Views
 			if (e.KeyCode == Keys.Enter)
 				btnFinalizarLogin.PerformClick();
 		}
+
+		private void pictureBox3_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

@@ -28,18 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbEstoque = new System.Windows.Forms.ToolStripButton();
 			this.tsbAnalisarEstoque = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbDoacao = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.tsbHistorico = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.tsbSair = new System.Windows.Forms.ToolStripButton();
 			this.tsbApresentarDoacao = new System.Windows.Forms.ToolStripButton();
+			this.tsbHistorico = new System.Windows.Forms.ToolStripButton();
+			this.tsbSair = new System.Windows.Forms.ToolStripButton();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -63,9 +62,24 @@
 			this.toolStrip1.TabIndex = 6;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 62);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 62);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 62);
+			// 
 			// tsbEstoque
 			// 
-			this.tsbEstoque.Image = ((System.Drawing.Image)(resources.GetObject("tsbEstoque.Image")));
+			this.tsbEstoque.Image = global::SmartStock.Properties.Resources.icons8_stock_36;
 			this.tsbEstoque.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbEstoque.Name = "tsbEstoque";
 			this.tsbEstoque.Size = new System.Drawing.Size(53, 59);
@@ -75,7 +89,7 @@
 			// 
 			// tsbAnalisarEstoque
 			// 
-			this.tsbAnalisarEstoque.Image = ((System.Drawing.Image)(resources.GetObject("tsbAnalisarEstoque.Image")));
+			this.tsbAnalisarEstoque.Image = global::SmartStock.Properties.Resources.icons8_analytics_36;
 			this.tsbAnalisarEstoque.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbAnalisarEstoque.Name = "tsbAnalisarEstoque";
 			this.tsbAnalisarEstoque.Size = new System.Drawing.Size(98, 59);
@@ -85,7 +99,7 @@
 			// 
 			// toolStripButton1
 			// 
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.Image = global::SmartStock.Properties.Resources.icons8_category_36;
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(113, 59);
@@ -93,14 +107,9 @@
 			this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
 			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 62);
-			// 
 			// tsbDoacao
 			// 
-			this.tsbDoacao.Image = ((System.Drawing.Image)(resources.GetObject("tsbDoacao.Image")));
+			this.tsbDoacao.Image = global::SmartStock.Properties.Resources.icons8_donate_36;
 			this.tsbDoacao.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbDoacao.Name = "tsbDoacao";
 			this.tsbDoacao.Size = new System.Drawing.Size(51, 59);
@@ -108,14 +117,19 @@
 			this.tsbDoacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.tsbDoacao.Click += new System.EventHandler(this.tsbDoacao_Click);
 			// 
-			// toolStripSeparator3
+			// tsbApresentarDoacao
 			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 62);
+			this.tsbApresentarDoacao.Image = global::SmartStock.Properties.Resources.icons8_tomato_36;
+			this.tsbApresentarDoacao.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbApresentarDoacao.Name = "tsbApresentarDoacao";
+			this.tsbApresentarDoacao.Size = new System.Drawing.Size(111, 59);
+			this.tsbApresentarDoacao.Text = "Apresentar Doação";
+			this.tsbApresentarDoacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.tsbApresentarDoacao.Click += new System.EventHandler(this.tsbApresentarDoacao_Click);
 			// 
 			// tsbHistorico
 			// 
-			this.tsbHistorico.Image = ((System.Drawing.Image)(resources.GetObject("tsbHistorico.Image")));
+			this.tsbHistorico.Image = global::SmartStock.Properties.Resources.icons8_history_36;
 			this.tsbHistorico.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbHistorico.Name = "tsbHistorico";
 			this.tsbHistorico.Size = new System.Drawing.Size(59, 59);
@@ -123,30 +137,15 @@
 			this.tsbHistorico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.tsbHistorico.Click += new System.EventHandler(this.tsbHistorico_Click);
 			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 62);
-			// 
 			// tsbSair
 			// 
-			this.tsbSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbSair.Image")));
+			this.tsbSair.Image = global::SmartStock.Properties.Resources.icons8_leave_36;
 			this.tsbSair.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbSair.Name = "tsbSair";
 			this.tsbSair.Size = new System.Drawing.Size(30, 59);
 			this.tsbSair.Text = "Sair";
 			this.tsbSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.tsbSair.Click += new System.EventHandler(this.tsbSair_Click);
-			// 
-			// tsbApresentarDoacao
-			// 
-			this.tsbApresentarDoacao.Image = ((System.Drawing.Image)(resources.GetObject("tsbApresentarDoacao.Image")));
-			this.tsbApresentarDoacao.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbApresentarDoacao.Name = "tsbApresentarDoacao";
-			this.tsbApresentarDoacao.Size = new System.Drawing.Size(111, 59);
-			this.tsbApresentarDoacao.Text = "Apresentar Doação";
-			this.tsbApresentarDoacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.tsbApresentarDoacao.Click += new System.EventHandler(this.tsbApresentarDoacao_Click);
 			// 
 			// FormPrincipal
 			// 
@@ -158,7 +157,7 @@
 			this.IsMdiContainer = true;
 			this.Name = "FormPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "FormPrincipal";
+			this.Text = "Principal";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();

@@ -28,13 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaProdutos));
 			this.DgvListagem = new System.Windows.Forms.DataGridView();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.tsbEditar = new System.Windows.Forms.ToolStripButton();
 			this.tsbExcluir = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbAtualizar = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.DgvListagem)).BeginInit();
 			this.toolStrip1.SuspendLayout();
@@ -71,9 +70,14 @@
 			this.toolStrip1.TabIndex = 1;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 50);
+			// 
 			// toolStripButton1
 			// 
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.Image = global::SmartStock.Properties.Resources.icons8_add_36;
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(78, 47);
@@ -82,7 +86,7 @@
 			// 
 			// tsbEditar
 			// 
-			this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+			this.tsbEditar.Image = global::SmartStock.Properties.Resources.icons8_edit_36;
 			this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbEditar.Name = "tsbEditar";
 			this.tsbEditar.Size = new System.Drawing.Size(57, 47);
@@ -91,21 +95,16 @@
 			// 
 			// tsbExcluir
 			// 
-			this.tsbExcluir.Image = ((System.Drawing.Image)(resources.GetObject("tsbExcluir.Image")));
+			this.tsbExcluir.Image = global::SmartStock.Properties.Resources.icons8_delete_36;
 			this.tsbExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbExcluir.Name = "tsbExcluir";
 			this.tsbExcluir.Size = new System.Drawing.Size(62, 47);
 			this.tsbExcluir.Text = "Excluir";
 			this.tsbExcluir.Click += new System.EventHandler(this.tsbExcluir_Click);
 			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 50);
-			// 
 			// tsbAtualizar
 			// 
-			this.tsbAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAtualizar.Image")));
+			this.tsbAtualizar.Image = global::SmartStock.Properties.Resources.icons8_update_36;
 			this.tsbAtualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.tsbAtualizar.Name = "tsbAtualizar";
 			this.tsbAtualizar.Size = new System.Drawing.Size(73, 47);

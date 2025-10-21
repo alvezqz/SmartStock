@@ -169,7 +169,7 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.comboProduto);
 			this.Name = "FormDoacao";
-			this.Text = "FormDoacao";
+			this.Text = "Doação";
 			((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
