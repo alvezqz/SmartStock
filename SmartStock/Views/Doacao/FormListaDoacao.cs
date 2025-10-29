@@ -26,6 +26,7 @@ namespace SmartStock.Views.Doacao
 		{
 			using (FormDoacao frm = new FormDoacao())
 			{
+				frm.ShowDialog();
 				if (frm._save)
 					tsbAtualizar.PerformClick();
 			}
@@ -76,7 +77,7 @@ namespace SmartStock.Views.Doacao
 		{
 			try
 			{
-				if (doacao != null)
+				if (doacao.IdDoacao > 0)
 				{
 
 					using (FormDoacao frm = new FormDoacao(doacao?.IdDoacao))
