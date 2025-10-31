@@ -39,25 +39,25 @@ Este projeto conta com um total de **20 funcionalidades** principais que abrange
 3. ➕ **Cadastro de Categoria**  
 4. ✏️ **Edição de Categoria**  
 5. 🗑️ **Exclusão de Categoria**  
-14. 👀 **Visualizar Lista de Categorias**
+6. 👀 **Visualizar Lista de Categorias**
 
 ---
 
 ## 📦 Gestão de Produtos
-6. ➕ **Adição de Produto**  
-7. ✏️ **Edição de Produtos**  
-8. 🗑️ **Exclusão de Produtos**  
-9. 📊 **Relatório de Produtos por Categoria e por Mês**  
-13. 📜 **Visualizar Histórico de Produtos Cadastrados e Doados**  
-16. 👀 **Visualizar Lista de Produtos**
+7. ➕ **Adição de Produto**  
+8. ✏️ **Edição de Produtos**  
+9. 🗑️ **Exclusão de Produtos**  
+10. 📊 **Relatório de Produtos por Categoria e por Mês**  
+11. 📜 **Visualizar Histórico de Produtos Cadastrados e Doados**  
+12. 👀 **Visualizar Lista de Produtos**
 
 ---
 
 ## 🎁 Gestão de Doações
-10. ➕ **Adição de Doação**  
-11. ✏️ **Edição de Doação**  
-12. 🗑️ **Exclusão de Doação**  
-15. 👀 **Visualizar Lista de Doações**
+13. ➕ **Adição de Doação**  
+14. ✏️ **Edição de Doação**  
+15. 🗑️ **Exclusão de Doação**  
+16. 👀 **Visualizar Lista de Doações**
 
 ---
 
