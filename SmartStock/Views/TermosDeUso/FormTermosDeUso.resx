@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>
+SmartStock é um sistema desenvolvido para organização, controle e acompanhamento de estoque e doações realizadas por empresas cadastradas.
+Ao utilizar o SmartStock, o usuário declara ter lido, entendido e concordado com os termos abaixo.
+
+1. Objetivo do Sistema
+
+O SmartStock tem como finalidade:
+
+Registrar, monitorar e atualizar informações de estoque.
+
+Organizar e documentar doações de produtos realizadas pelas empresas.
+
+Facilitar a gestão responsável, transparente e segura dos itens cadastrados.
+
+2. Cadastro e Responsabilidade do Usuário
+
+O usuário é responsável por fornecer informações verdadeiras no cadastro.
+
+Cada empresa deve manter seus dados atualizados.
+
+O acesso ao sistema é individual, e o usuário se compromete a proteger suas credenciais.
+
+3. Uso Ético e Responsável
+
+O SmartStock deve ser utilizado de forma ética e transparente.
+É proibido:
+
+Inserir informações falsas, incompletas ou manipuladas sobre produtos ou doações.
+
+Utilizar o sistema para fins ilegais, prejudiciais ou contrários às políticas da empresa.
+
+Compartilhar dados de acesso com terceiros sem autorização.
+
+4. Registro e Movimentação de Estoque
+
+Toda entrada, saída ou doação deve ser registrada corretamente.
+
+A empresa é responsável pela veracidade das informações inseridas no sistema.
+
+O SmartStock não se responsabiliza por danos causados por registros incorretos ou uso inadequado.
+
+5. Privacidade e Proteção de Dados
+
+O sistema respeita a confidencialidade dos dados fornecidos.
+
+Informações internas de estoque e doações não serão divulgadas a terceiros sem autorização da empresa.
+
+O usuário concorda em utilizar e compartilhar dados somente dentro da finalidade do sistema.
+
+6. Auditoria e Transparência
+
+A equipe administrativa do SmartStock pode realizar auditorias internas para garantir o bom funcionamento do sistema.
+
+Registros suspeitos, inconsistentes ou fraudulentos podem ser reportados e resultar em suspensão do acesso.
+
+7. Limitação de Responsabilidade
+
+O SmartStock:
+
+Não garante disponibilidade contínua do sistema em todos os momentos.
+
+Não se responsabiliza por falhas de conexão, erros externos ou uso indevido por parte do usuário.
+
+Oferece a ferramenta, mas não controla decisões internas da empresa sobre estoque e doações.
+
+8. Atualizações dos Termos
+
+Os termos podem ser atualizados a qualquer momento para melhorias ou adequações legais.
+
+O uso contínuo do SmartStock implica concordância com as versões atualizadas.
+
+9. Conduta Ética Esperada
+
+Todos os usuários devem agir de acordo com os princípios de:
+
+Transparência
+
+Integridade
+
+Responsabilidade
+
+Solidariedade nas doações
+
+Boas práticas de gestão
+
+A violação desses princípios pode resultar em suspensão ou cancelamento do acesso ao sistema.
+
+10. Aceitação dos Termos
+
+Ao acessar e utilizar o SmartStock, o usuário confirma estar de acordo com todas as regras, práticas éticas e condições aqui apresentadas.</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABMLAAATCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFRMO8hUTDzHAAAAAAAAAAAAAAAAVEw7yFRM
+        PMcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUTTvKVEw7yAAAAAAAAAAAAAAAAFRN
+        O8pUTDvIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIlQCMiJYA84iWAP+IlgD/iJYA/4iW
+        AP+IlgD/iJYA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIlgA4iJYA/4iVAHaHlgBVh5YAVYeW
+        AFWHlgBVh5YAVYeWAFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh5YAVYiWAP+HlgBVh5YAVYeW
+        AFWHlgBVh5YAVYeWAFWHlgBVg5UAHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIeWAFWIlgD/iJYA/4iW
+        AP+IlgD/iJYA/4iWAP+IlgD/iJYA/4iVAMYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACHlgBmiJYA/waY
+        8ukAmP//AJj//wCY//8AmP//AJj//wCY//8Al//eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiJUAe4iV
+        APcAmP//AJj//wCY//8AmP//AJj//wCY//8AmP//AJj//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIeW
+        AMCIlgCmAJj//wCY//8AmP//AJj//wCY//8AmP//AJj//wCY//8AAAAAAAAAAAAAAAAAAAAAAAAAAIqU
+        ABiHlQD8h5cAUQCY//8AmP//AJj//wCY//8AmP//AJj//wCY//8AmP//AAAAAAAAAAAAAAAAbW0AB3F7
+        AGGHlQCTiJYA842NAAkAmP//AJj//wCN7P8AabH/AGmx/wCN7f8AmP//AJj//wAAAAAAAAAAAAAAAF1m
+        ADRhbQDwh5YA9oiVAHIAAAAAAJf/3gCY//8AmP//AJj//wCY//8AmP//AJj//wCX/94AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAP//AAD85wAA/OcAAPgHAADwBwAA8AMAAPADAADwAwAA8AMAAPADAADgAwAAgAMAAIQD
+        AAD//wAA//8AAA==
+</value>
+  </data>
+</root>

@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using SmartStock.Controllers;
 using SmartStock.Models;
+using SmartStock.Views.TermosDeUso;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,13 +26,17 @@ namespace SmartStock.Views
 
 		private void btnCadastrar_Click(object sender, EventArgs e)
 		{
-			if (ValidarForms())
+			using(FormTermosDeUso frm = new FormTermosDeUso())
 			{
-				try
-				{
-					string query = "INSERT INTO Empresa (idEmpresa, nomeEmpresa, email, senha, cnpj, telefone) " +
-					"VALUES (@idEmpresa, @nomeEmpresa, @email, @senha, @cnpj, @telefone)";
-					if (FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
+				frm.ShowDialog();
+				if (frm.confirmado)
+					if (ValidarForms())
+					{
+						try
+						{
+							string query = "INSERT INTO Empresa (idEmpresa, nomeEmpresa, email, senha, cnpj, telefone) " +
+							"VALUES (@idEmpresa, @nomeEmpresa, @email, @senha, @cnpj, @telefone)";
+							if (FormLogin.bd.ExecutarComando(query, new List<MySqlParameter>()
 					{
 
 						new MySqlParameter("@idEmpresa", EmpresaController.NovoId()),
@@ -41,16 +46,16 @@ namespace SmartStock.Views
 						new MySqlParameter("@cnpj", txtCnpj.Text),
 						new MySqlParameter("@telefone", txtTelefone.Text)
 					}))
-					{
-						Mensagem.Sucesso("Empresa Cadastrada com Sucesso. \n Faça o Login");
-						this.Close();
+							{
+								Mensagem.Sucesso("Empresa Cadastrada com Sucesso. \n Faça o Login");
+								this.Close();
+							}
+						}
+						catch (Exception ex)
+						{
+							Mensagem.Erro(ex.ToString());
+						}
 					}
-				}
-				catch(Exception ex)
-				{
-					Mensagem.Erro(ex.ToString());
-				}
-				
 			}
 		}
 		
